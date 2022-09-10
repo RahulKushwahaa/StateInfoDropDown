@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Full Info</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script>
+        var states=[
+            ["Select","Select","Select","select","select","Select","Select","Select"],
+            ["Bihar","BiharMap.jpg","Patna","Nitish Kumar","CM_Bihar_Nitish_Kumar.jpg","Phagu Chauhan","Governor_Bihar_Phagu_Chauhan.jpg","38"],
+            ["Andhra Pradesh","AndhraPradeshMap.jpg","Hyderabad (Amrawati)","Y.S.Jagan Mohan Reddy","CM_Andhra_Pradesh_Y.S._Jagan_Mohan_Reddy.png","Biswabhusan Harichandan","Governor_Andhra_Pradesh_biswabhusan-harichandan.jpg","26"],
+            ["Arunachal Pradesh","ArunachalPradeshMap.jpg","Itanagar","Pema Khandu","CM_Arunachal_Pema_Khandu.jpg","B.D. Mishra","Governor_Arunachal_B.D_Mishra.jpg","26"],
+            ["Assam","AssamMap.jpg","Dispur","Himanta Biswa Sarma","CM_Assam_Himanta_Biswa_Sarma.jpeg","Jagdish Mukhie","Governor_Assam_Shri_Jagdish_Mukhie.JPG","35"],
+            ["Chhattisgarh","ChhattisgarhMap.jpg","Raipur","Bhupesh Baghel","CM_Chhattisgarh_Bhupesh_Baghel.jpg","Ms. Anusuiya Uikey","Governor_Chhattisgarh_Ms._Anusuiya_Uikey.jpg","33"],
+            ["Goa","GoaMap.jpg","Panji","Dr. Pramod Sawant","CM_Goa_Dr._Pramod_Sawant.jpg","P.S. Sreedharan Pillai","Governor_Goa_PS_Sreedharan_Pillai.jpg","2"],          
+            ["Gujarat","GujaratMap.jpg","Gandhinagar","Bhupendra Patel","CM_Gujarat_Bhupendra_Patel.jpg","Acharya Devvrat","Governor_Gujarat_Acharya_Devvrat.jpg","33"],
+            ["Haryana","HaryanaMap.jpg","Chandigarh","Shri Manohar Lal","CM_Haryana_Shri_Manohar_Lal.jpg","Shri Bandaru Dattatreya","Governor_Haryana_Shri_Bandaru_Dattatreya.jpg","22"],
+            ["Himachal Pradesh","HimachalPradeshMap.jpg","Shimla","Jai Ram Thakur","CM_Himachal_Pradesh_Jai_Ram_Thakur.jpg","Rajendra Arlekar","Governor_Himachal_Pradesh_Rajendra_Arlekar.jpg","12"],
+            ["Jammu and Kashmir","jammuKashmirMap.jpg","Srinagar","Mehbooba Mufti","CM_Jammu_And_Kashmir_Mehbooba_Mufti.jpg","Manoj Kumar","Governor_Jammu_and_Kashmir_Manoj_sinha.jpg","22"],
+            ["Jharkhand","jharkhandMap.jpg","Ranchi","Shri Hemant Soren","CM_Jharkhand_Shri_Hemant_Soren.jpg","Shri Ramesh Bais","Governor_Jharkhand_Shri_Ramesh_Bais.jpg","24"],
+            ["Karnataka","KarnatakaMap.jpg","Bengaluru","Basavaraj Bommai","CM_Karnataka_Basavaraj_Bommai.jpg","Thawar Chand Gehlot","Governor_Karnataka_Thawar_Chand_Gehlot.JPG","31"],
+            ["Kerala","KeralaMap.png","Thiruvananthapuram","Pinarayi Vijayan","CM_Kerala_Pinarayi_Vijayan.jpg","Arif Mohammad Khan","Governor_Kerala_Arif_Mohammad_Khan.jpg","14"],
+            ["Madhya Pradesh","MadhyaPradeshMap.jpg","Bhopal","Shivraj Singh Chouhan","CM_Madhya_Pradesh_Shivraj_Singh_Chouhan.jpg","Mangubhai C. Patel","Governor_Madhya_Pradesh_Mangubhai_C._Patel.jpg","50"],
+            ["Maharashtra","MaharashtraMap.jpg","Mumbai","Eknath Shinde","CM_Maharashtra_Eknath_Shinde.jpg","Bhagat Singh Koshyari","Governor_Maharashtra_Bhagat_Singh_Koshyari.jpg","35"],
+            ["Manipur","ManipurMap.jpg","Imphal","N. Biren Singh","CM_Manipur_N_Biren_Singh.jpg","La. Ganesan","Governor_Manipur_La_Ganesan.jpg","16"],
+            ["Meghalaya","MeghalayaMap.jpg","Shillong","Shri Conrad Sangma","CM_Meghalaya_Shri_Conrad_Sangma.jpeg","Satya Pal Malik","Governor_Meghalaya_Satya_Pal_Malik.jpg","12"],
+            ["Mizoram","Mizorammap.jpg","Aizawl","Zoramthanga","CM_Mizoram_Zoramthanga.jpg","K. Hari Babu","Governor_Mizoram_K._Hari_Babu.jpg","11"],
+            ["Nagaland","NagalandMap.jpg","Kohima","Neiphiu Rio","CM_Nagaland_Neiphiu_Rio.jpg","Shri Jagdish Mukhie","Governor_Nagaland_Shri_Jagdish_Mukhi.JPG","16"],
+            ["Odisha","OdishaMap.jpg","Bhubaneshwar","Naveen Patnaik","CM_Odisha_Naveen_Patnaik.jpg","Ganeshi Lal Mathur","Governor_Odisha_Ganeshi_Lal_Mathur.jpg","30"],
+            ["Punjab","PunjabMap.jpg","Chandigarh","Bhagwant Mann","CM_Punjab_Bhagwant_Mann.jpg","Banwarilal Purohit","Governor_Punjab_Banwarilal_Purohit.jpg","23"],
+            ["Rajasthan","RajasthanMap.jpg","Jaipur","Ashok Gehlot","CM_Rajasthan_Ashok_Gehlot.jpg","Shri Kalraj Mishra","Governor_Rajasthan_Shri_Kalraj_Mishra.jpg","33"],
+            ["Sikkim","SikkimMap.jpg","Gangtok","Prem Singh Tamang","CM_Sikkim_Prem_Singh_Tamang.jpg","Ganga Prasad","Governor_Sikkim_Ganga_Prasad.jpeg","4"],
+            ["Tamil Nadu","TamilNaduMap.jpg","Chennai","M.K. Stalin","CM_Tamil_Nadu_M.K._Stalin.jpg","Ravindra Narayana Ravi","Governor_Tamil_Nadu_Ravindra_Narayana_Ravi.jpg","38"],
+            ["Telangana","TelanganaMap.jpg","Hyderabad","Kalvakuntla Chandrashekar Rao","CM_Telangana_Kalvakuntla_Chandrashekar_Rao.png","Tamilisai Soundararajan","Governor_Telangana_Tamilisai_Soundararajan.jpg","31"],
+            ["Tripura","TripuraMap.jpg","Agartala","Manik Saha","CM_Tripura_Manik_Saha.jpg","Satyadev Narayan Arya","Governor_Tripura_Satyadev_Narayan_Arya.jpeg","8"],
+            ["Uttar Pradesh","UttarPradeshMap.jpg","Lucknow","Shri Yogi Adityanath","CM_Uttar_Pradesh_Shri_Yogi_Adityanath.jpg","Anandiben Patel","Governor_Uttar_Pradesh_Anandiben_Patel_Ji.jpg","75"],
+            ["Uttarakhand","UttarakhandMap.jpg","Dehradun","Pushkar Singh Dhami","CM_Uttarakhand_Pushkar_Singh_Dhami.jpg","Gurmit Singh","Governor_Uttarakhand_Gurmit_Singh.jpg","13"],
+            ["West Bangal","westBangalMap.jpg","Kolkata","Mamata Banerjeein","CM_West_Bangal_MamataBanerjeein.jpg","Jagdeep Dhankhar","Governor_West_Bangal_Jagdeep_Dhankhar.jpg","23"],
+            ];
+        function showIndianStateInfo()
+        {
+            //show indian state full info Area
+            var d=document.getElementById("indianStates");
+            d.style.display="block";
+            // Add All State Name In Select Tag or Drop Down list
+            var options="";
+            var i;
+            for(i=0;i<states.length;i+=1)
+            {
+                options=options+"<option value=\""+i+'">'+states[i][0]+'</option>';
+            }
+            //set option in setect tag
+            document.getElementById("states").innerHTML=options;           
+        }
+
+        function displayInfo()
+        {
+            // Get The Selected Item Value            
+            var selectedStateIndex=parseInt(document.getElementById("states").value);
+            // Set The Details On Lebel Of Selected State
+            document.getElementById("stateName").innerHTML=states[selectedStateIndex][0];
+            document.getElementById("Map").src=""+states[selectedStateIndex][1];          
+            document.getElementById("capitalName").innerHTML=states[selectedStateIndex][2];
+            document.getElementById("CMName").innerHTML=states[selectedStateIndex][3];
+            document.getElementById("CMImage").src=""+states[selectedStateIndex][4];
+            document.getElementById("GName").innerHTML=states[selectedStateIndex][5];
+            document.getElementById("GImage").src=""+states[selectedStateIndex][6];
+            document.getElementById("Dist").innerHTML=states[selectedStateIndex][7];
+
+        }   
+    </script>
+
+    
+</head>
+<body>
+    <div class="container-fluid"><hr/>
+        <div class="row" >
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" onclick="showIndianStateInfo();">Show States Info</button>
+            </div>
+        </div><hr/>
+
+        <div id="indianStates" style="display: none;">
+            <div class="row"></div>
+                <div class="col-sm-12 text-center">
+                    <select id="states" class="form-control form-control-lg" onchange="displayInfo();"></select>
+                </div>
+            </div>
+        
+
+            <div class="row"><hr/>
+                <div class="col-sm-4 text-center">
+                    <b>State Name & Map</b><hr/>
+                    <div class="map">
+                        <h1 style="position:absolute; left: 170px;top: 400px; text-align: center;" id="stateName">State Name</h1>
+                        <img src="" id="Map" height="500px" width="500px"/>
+                    </div>
+                </div>
+
+               
+                <div class="col-sm-2 text-center">
+                    <b>Capital Name</b><hr/>
+                    <h5 id="capitalName">Capital Name</h5>
+                </div>
+
+                <div class="col-sm-1 text-center">
+                    <b>CM Name</b><hr/>
+                    <h5 id="CMName">CM Name</h5>
+                </div>
+                <div class="col-sm-1 text-center">
+                    <b>CM Image</b><hr/>
+                    <img src="" id="CMImage" height="100px" width="100px" />
+                </div>
+
+                <div class="col-sm-1 text-center">
+                    <b>Gov Name</b><hr/>
+                    <h5 id="GName">Name</h5>
+                </div>
+                <div class="col-sm-1 text-center">
+                    <b>Gov Image</b><hr/>
+                    <img src="" id="GImage" height="100px" width="100px" />
+                </div>
+
+                <div class="col-sm-2 text-center">
+                    <b>Total District</b><hr/>
+                    <h5 id="Dist">District</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
